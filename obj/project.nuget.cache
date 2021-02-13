@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CtQaPYapcZj+lSBR1XLZRp+QvMy4aDssvtCppG0umNk8/QavPKsZ7OjAhQJQVTog5NGfa8/BiphAV3vRXmEwmQ==",
+  "dgSpecHash": "yGGkzblz7ihgSok/A5wR+aOcvin6QCFyE0YufdFO46PlNt9S8z9pnwAKZyTnO0frwfdnhTPTyFK8ZL6Tp6Vdsw==",
   "success": true,
-  "projectFilePath": "H:\\MyBroidery\\MyBroidery\\MyBroidery.csproj",
+  "projectFilePath": "C:\\Users\\shann\\OneDrive\\Documents\\GitHub\\MyBroidery\\MyBroidery.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\shann\\.nuget\\packages\\microsoft.aspnet.cors\\5.2.7\\microsoft.aspnet.cors.5.2.7.nupkg.sha512",
     "C:\\Users\\shann\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.7\\microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",

@@ -102,6 +102,9 @@ namespace MyBroidery.Controllers
         [HttpPost("Update")]
         public async Task<ActionResult<User>> Update(User entity)
         {
+            if (!user.HasPrivilege("own_account_update") && user.Username == entity.Username) { 
+                return StatusCode(403); 
+            }
             if (!user.HasPrivilege("account_update"))
             {
                 return StatusCode(403);
@@ -113,6 +116,9 @@ namespace MyBroidery.Controllers
         [HttpDelete("Delete")]
         public async Task<ActionResult<bool>> Delete(int entityId)
         {
+            if (!user.HasPrivilege("own_account_delete") && user.Id == entityId) {
+                return StatusCode(403);
+            }
             if (!user.HasPrivilege("account_delete"))
             {
                 return StatusCode(403);

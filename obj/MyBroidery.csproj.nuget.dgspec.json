@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "H:\\MyBroidery\\MyBroidery\\MyBroidery.csproj": {}
+    "C:\\Users\\shann\\OneDrive\\Documents\\GitHub\\MyBroidery\\MyBroidery.csproj": {}
   },
   "projects": {
-    "H:\\MyBroidery\\MyBroidery\\MyBroidery.csproj": {
+    "C:\\Users\\shann\\OneDrive\\Documents\\GitHub\\MyBroidery\\MyBroidery.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\MyBroidery\\MyBroidery\\MyBroidery.csproj",
+        "projectUniqueName": "C:\\Users\\shann\\OneDrive\\Documents\\GitHub\\MyBroidery\\MyBroidery.csproj",
         "projectName": "MyBroidery",
-        "projectPath": "H:\\MyBroidery\\MyBroidery\\MyBroidery.csproj",
+        "projectPath": "C:\\Users\\shann\\OneDrive\\Documents\\GitHub\\MyBroidery\\MyBroidery.csproj",
         "packagesPath": "C:\\Users\\shann\\.nuget\\packages\\",
-        "outputPath": "H:\\MyBroidery\\MyBroidery\\obj\\",
+        "outputPath": "C:\\Users\\shann\\OneDrive\\Documents\\GitHub\\MyBroidery\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\shann\\AppData\\Roaming\\NuGet\\NuGet.Config",
