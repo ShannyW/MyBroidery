@@ -20,7 +20,7 @@ namespace MyBroidery
         public User GetUser(string token)
         {
             var tokens = context.Tokens.Include(r=>r.User).ToList();
-            return context.Tokens.Include(r => r.User).FirstOrDefault(r => r.Content == token && r.Expires < DateTimeOffset.Now)?.User ??
+            return context.Tokens.Include(r => r.User).FirstOrDefault(r => r.Content == token)?.User ??
                 context.Users.FirstOrDefault(r => r.Username == "Guest");
         }
     }
