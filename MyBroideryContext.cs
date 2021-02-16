@@ -11,6 +11,7 @@ namespace MyBroidery
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Categories { get; set; }
         public DbSet<Token> Tokens { get; set; }
 
         public Task<int> SaveChangesAsync()
@@ -77,6 +78,12 @@ namespace MyBroidery
                         Id = 21,
                         RoleId = 13,
                         Privilege = "product_list"
+                    },
+                    new RolePrivilege
+                    {
+                        Id = 22,
+                        RoleId = 13,
+                        Privilege = "category_read"
                     },
                 });
             modelBuilder.Entity<RolePrivilege>().HasData(new List<RolePrivilege> {
@@ -145,6 +152,36 @@ namespace MyBroidery
                         Id = 12,
                         RoleId = 1,
                         Privilege = "product_read"
+                    },
+                    new RolePrivilege
+                    {
+                        Id = 23,
+                        RoleId = 1,
+                        Privilege = "category_read"
+                    },
+                    new RolePrivilege
+                    {
+                        Id = 24,
+                        RoleId = 1,
+                        Privilege = "category_create"
+                    },
+                    new RolePrivilege
+                    {
+                        Id = 25,
+                        RoleId = 1,
+                        Privilege = "category_update"
+                    },
+                    new RolePrivilege
+                    {
+                        Id = 26,
+                        RoleId = 1,
+                        Privilege = "category_delete"
+                    },
+                    new RolePrivilege
+                    {
+                        Id = 27,
+                        RoleId = 1,
+                        Privilege = "category_list"
                     },
                 });
         }

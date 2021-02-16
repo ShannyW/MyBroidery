@@ -21,6 +21,7 @@ namespace MyBroidery
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Categories { get; set; }
         public DbSet<Token> Tokens { get; set; }
         public Task<int> SaveChangesAsync();
         public EntityEntry<TEntity> Update<TEntity>(TEntity entity) where TEntity : class;

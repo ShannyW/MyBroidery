@@ -9,8 +9,8 @@ using MyBroidery;
 namespace MyBroidery.Migrations
 {
     [DbContext(typeof(MyBroideryContext))]
-    [Migration("20210207191255_SeedData2")]
-    partial class SeedData2
+    [Migration("20210216150940_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -18,10 +18,32 @@ namespace MyBroidery.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.9");
 
+            modelBuilder.Entity("MyBroidery.Entities.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("ParentCategoryId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ParentCategoryId");
+
+                    b.ToTable("Categories");
+                });
+
             modelBuilder.Entity("MyBroidery.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("CategoryId")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("Created")
@@ -43,6 +65,8 @@ namespace MyBroidery.Migrations
                         .HasColumnType("REAL");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
 
                     b.HasIndex("CreatedById");
 
@@ -132,6 +156,12 @@ namespace MyBroidery.Migrations
                         },
                         new
                         {
+                            Id = 22,
+                            Privilege = "category_read",
+                            RoleId = 13
+                        },
+                        new
+                        {
                             Id = 2,
                             Privilege = "account_list",
                             RoleId = 1
@@ -194,6 +224,36 @@ namespace MyBroidery.Migrations
                         {
                             Id = 12,
                             Privilege = "product_read",
+                            RoleId = 1
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Privilege = "category_read",
+                            RoleId = 1
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Privilege = "category_create",
+                            RoleId = 1
+                        },
+                        new
+                        {
+                            Id = 25,
+                            Privilege = "category_update",
+                            RoleId = 1
+                        },
+                        new
+                        {
+                            Id = 26,
+                            Privilege = "category_delete",
+                            RoleId = 1
+                        },
+                        new
+                        {
+                            Id = 27,
+                            Privilege = "category_list",
                             RoleId = 1
                         });
                 });
@@ -276,8 +336,19 @@ namespace MyBroidery.Migrations
                         });
                 });
 
+            modelBuilder.Entity("MyBroidery.Entities.Category", b =>
+                {
+                    b.HasOne("MyBroidery.Entities.Category", "ParentCategory")
+                        .WithMany("SubCategories")
+                        .HasForeignKey("ParentCategoryId");
+                });
+
             modelBuilder.Entity("MyBroidery.Entities.Product", b =>
                 {
+                    b.HasOne("MyBroidery.Entities.Category", "Category")
+                        .WithMany("Products")
+                        .HasForeignKey("CategoryId");
+
                     b.HasOne("MyBroidery.Entities.User", "CreatedBy")
                         .WithMany()
                         .HasForeignKey("CreatedById")

@@ -23,6 +23,8 @@ namespace MyBroidery.Entities
         [ForeignKey("CreatedById")]
         public User CreatedBy { get; set; }
         public DateTime Created { get; set; }
-        
+        public int? CategoryId { get; set; }
+        [ForeignKey("CategoryId")]
+        public Category Category { get; set; }
     }
 }

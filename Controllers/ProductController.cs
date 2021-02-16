@@ -36,8 +36,8 @@ namespace MyBroidery.Controllers
                 Image = product.Image,
                 Price = product.Price,
                 Created = timeCreated,
-                CreatedById = 1
-            });
+                CreatedById = user.Id
+            }) ;
             await context.SaveChangesAsync();
             return Ok(product);
         }

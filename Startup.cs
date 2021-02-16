@@ -37,9 +37,11 @@ namespace MyBroidery
                     builder.SetIsOriginAllowed(origin => new Uri(origin).Host == "localhost");
                 });
             });
-            _ = services.AddControllers().AddNewtonsoftJson();
-            services.AddSingleton<IMyBroideryContext, MyBroideryContext>();
-            services.AddSingleton<ISecurityContext, SecurityContext>();
+            _ = services.AddControllers().AddNewtonsoftJson(x => {
+                x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            });
+            services.AddScoped<IMyBroideryContext, MyBroideryContext>();
+            services.AddScoped<ISecurityContext, SecurityContext>();
             services.AddScoped<IAuthInfo, AuthInfo>();
             services.AddScoped(ctx => ctx.GetService<IHttpContextAccessor>()?.HttpContext);
             services.AddScoped(ctx => ctx.GetService<HttpContext>()?.Request);

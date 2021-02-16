@@ -141,7 +141,7 @@ namespace MyBroidery.Controllers
         [HttpGet("Me")]
         public async Task<ActionResult<User>> Me() 
         {
-            return Ok(context.Users.FirstOrDefault(r => r.Username == authInfo.Username));
+            return Ok(user);
         }
     }
 }
